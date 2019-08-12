@@ -1,0 +1,4 @@
+{
+    "mongoURI":"mongodb+srv://aryo100:1234567890@devconnector-ezmky.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret" : "mysecrettoken"
+}
