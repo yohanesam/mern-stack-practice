@@ -1,4 +1,6 @@
 {
     "mongoURI":"mongodb+srv://aryo100:1234567890@devconnector-ezmky.mongodb.net/test?retryWrites=true&w=majority",
-    "jwtSecret" : "mysecrettoken"
+    "jwtSecret" : "mysecrettoken",
+    "githubClientId": "e118f4fe70d16f2321e1",
+    "githubSecret": "0839842a546a63fa2964452b1c2f3774e2fa4416"
 }
