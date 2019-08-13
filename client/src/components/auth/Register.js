@@ -16,16 +16,14 @@ const Register = ({ setAlert, register }) => {
     });
 
     const { name, email, password, password2 } = formData;
-
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value});
 
     const onSubmit = e => {
         e.preventDefault();
-
         if(password !== password2) {
             setAlert("Password Do Not Match", 'danger');
         } else {
-            register({ name, email, password });
+            register(name, email, password);
         }
     }
     
@@ -49,10 +47,10 @@ const Register = ({ setAlert, register }) => {
                     name="email" 
                     value={email}
                     onChange={e => onChange(e)}/>
-                <small className="form-text"
-                    >This site uses Gravatar so if you want a profile image, use a
-                    Gravatar email</small
-                >
+                <small className="form-text">
+                    This site uses Gravatar so if you want a profile image, use a
+                    Gravatar email
+                </small>
                 </div>
                 <div className="form-group">
                 <input
@@ -78,7 +76,7 @@ const Register = ({ setAlert, register }) => {
                 Already have an account? <Link to='/login'>Sign In</Link>
             </p>
         </Fragment>
-    );
+    )
 };
 
 Register.propTypes = {
