@@ -6,7 +6,8 @@ import {
     REGISTER_SUCCESS,
     REGISTER_FAILED,
     USER_LOADED,
-    AUTH_ERROR
+    AUTH_ERROR,
+    LOGOUT
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -24,12 +25,9 @@ export const loadUser = () => async dispatch => {
             payload: res.data
         })
     } catch (err) {
-        dispatch({
-            type: AUTH_ERROR
-        })
+        dispatch({ type: AUTH_ERROR })
     }
 }
-
 
 // Register User
 export const register = (name, email, password ) => async dispatch => {
@@ -58,9 +56,7 @@ export const register = (name, email, password ) => async dispatch => {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
 
-        dispatch({
-            type: REGISTER_FAILED
-        });
+        dispatch({ type: REGISTER_FAILED });
     }
 }
 
@@ -92,8 +88,11 @@ export const login = (email, password) => async dispatch => {
             errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
         }
 
-        dispatch({
-            type: LOGIN_FAILED
-        });
+        dispatch({ type: LOGIN_FAILED });
     }
+}
+
+// Logout / Clear Profile
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT });
 }
