@@ -23,4 +23,4 @@ const UserSchema = new moongose.Schema({
     }
 });
 
-module.exports = User = moongose.model('User', UserSchema);54
+module.exports = User = moongose.model('user', UserSchema);
