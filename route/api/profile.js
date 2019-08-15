@@ -29,7 +29,7 @@ router.get('/me', auth , async (req, res) => {
     }
 });
 
-// @route   POST api/Profile/me
+// @route   POST api/Profile/
 // @desc    create or update user profile
 // @acess   Private
 router.post('/',[auth, [
@@ -39,7 +39,7 @@ router.post('/',[auth, [
     async (req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({ error: errors.array() });
+            return res.status(400).json({ errors: errors.array() });
         }
 
         const {
