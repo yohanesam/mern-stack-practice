@@ -1,21 +1,15 @@
 const express = require('express');
+const express_graphql = require('express-graphql');
+const schema = require('./schema/schema');
 const connectDB = require('./config/db');
-
-const app = express();
 
 connectDB();
 
-// Init Middlewere
-app.use(express.json({ extended:false }));
+// Create an express server and a Graphql endpoint
+const app = express();
+app.use('/graphql',express_graphql({
+    schema:schema,
+    graphiql:true
+}));
 
-app.get('/', (req, res) => res.send('API Running'));
-
-// Define Routes
-app.use('/api/users', require('./route/api/users'));
-app.use('/api/auth', require('./route/api/auth'));
-app.use('/api/profile', require('./route/api/profile'));
-app.use('/api/posts', require('./route/api/posts'));
-
-const PORT = process.env.PORT||5000;
-
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(4000, () => console.log('Express Graphql Server now running on localhost:4000/graphql'));
