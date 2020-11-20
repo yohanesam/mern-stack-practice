@@ -1,2 +1,2 @@
 # mern-stack-practice
-# HAI!
+# Project mengenai MERN Stack
